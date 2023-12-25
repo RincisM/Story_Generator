@@ -1,0 +1,20 @@
+@startuml Container
+!include <C4/C4_Container>
+
+Container(User, "User", "End user interacting with the application")
+Container(Streamlit, "Streamlit App", "Python, Streamlit")
+Container(Firebase, "Firebase", "Authentication, Firestore")
+Container(SHA256, "SHA-256", "Encrypts login/signup details")
+Container(AES, "AES", "Encrypts/Decrypts stories")
+
+Rel(User, Streamlit, "Uses", "HTTPS")
+Rel(Streamlit, SHA256, "Sends authentication requests")
+Rel(SHA256, Firebase, "Encrypts Login/Signup Details")
+Rel(Firebase, SHA256, "Sends authentication responses")
+Rel(SHA256, Streamlit, "Decrypts the Login/Signup Details")
+Rel(Streamlit, AES, "Sends Generated Stories")
+Rel(AES, Firebase, "Encrypts stories and stores it along with User Details")
+Rel(Firebase, AES, "Sends the Encrypted Stories")
+Rel(AES, Streamlit, "Retrieves user data with decrypted Stories")
+
+@enduml
