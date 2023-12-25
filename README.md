@@ -48,4 +48,4 @@ Ensure you have the necessary credentials for Firebase authentication. Update th
 To clone this repository to your local system, use the following command in your terminal or command prompt:
 
 ```bash
-git clone https://github.com/your-username/story-generator.git
+git clone https://github.com/RincisM/Story_Generator.git
